@@ -1,0 +1,16 @@
+version: "3.3" # Use a more recent version of the Compose file format
+services:
+  lede:
+    image: greenny/lede:ubuntu # The image to use for the service
+    container_name: lede # A custom name for the container
+    stdin_open: true # Keep STDIN open even if not attached (for interactive sessions)
+    tty: true # Allocate a pseudo-TTY (for interactive sessions)
+    volumes:
+      - type: bind # Explicitly specify the bind mount type (recommended)
+        source: ./data # Path on the host machine
+        target: /home/lede/build # Path inside the container
+      - type: bind # Explicitly specify the bind mount type (recommended)
+        source: ./scripts # Path on the host machine
+        target: /home/lede/scripts # Path inside the container
+    user: 1000:1000 # Map the container user to the host user with UID/GID 1000 to avoid permission issues (if needed)
+    working_dir: /home/lede/build # Set the working directory inside the container
