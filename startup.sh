@@ -1,6 +1,12 @@
 #!/bin/bash
 set -ex
 
+# 创建data/images目录
+mkdir -p data/images
+
+# 启动docker
+./restart_lede_docker.sh
+
 cat <<EOF > ./data/first_run.sh
 #!/bin/bash
 set -ex
