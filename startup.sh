@@ -18,4 +18,4 @@ git checkout green/passwall
 EOF
 
 chmod +x ./data/first_run.sh
-docker run -it -u lede -w /home/lede/build ./first_run.sh
+docker exec -it -u lede -w /home/lede/build lede ./first_run.sh
