@@ -1,6 +1,14 @@
 #!/bin/bash
 set -e
 
+cp -r ~/files ./
+
+# Write changes to .config
+cp diffconfig .config
+
+# Expand to full config
+make defconfig
+
 make -j8 download
 make -j1 V=s
 

@@ -11,5 +11,8 @@ services:
       - type: bind # Explicitly specify the bind mount type (recommended)
         source: ./scripts # Path on the host machine
         target: /home/lede/scripts # Path inside the container
+      - type: bind # Explicitly specify the bind mount type (recommended)
+        source: ./files # Path on the host machine
+        target: /home/lede/files # Path inside the container
     user: 1000:1000 # Map the container user to the host user with UID/GID 1000 to avoid permission issues (if needed)
     working_dir: /home/lede/build # Set the working directory inside the container

@@ -1,13 +1,7 @@
 #!/bin/bash
 set -e
 
-git checkout master
-git pull
-git branch -D green/passwall
-git checkout green/passwall
-
-./scripts/feeds update -a
-./scripts/feeds install -a
+cp -r ~/files ./
 
 # Write changes to .config
 cp diffconfig .config
